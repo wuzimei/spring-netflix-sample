@@ -5,6 +5,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.1.RELEASE</version>
+		<relativePath />
 	</parent>
 	<groupId>com.wzm</groupId>
 	<artifactId>spring-netflix-sample</artifactId>
@@ -18,6 +19,21 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-commons</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -42,5 +58,6 @@
 	</build>
 	<modules>
 		<module>spring-cloud-eureka-server</module>
+		<module>service-word-segment</module>
 	</modules>
 </project>
