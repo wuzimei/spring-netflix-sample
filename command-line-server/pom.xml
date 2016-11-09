@@ -7,26 +7,15 @@
 		<groupId>com.wzm</groupId>
 		<artifactId>spring-netflix-sample</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../</relativePath>
 	</parent>
-	<artifactId>service-word-segment</artifactId>
-	<packaging>jar</packaging>
-	<name>service-word-segment</name>
-
+	<artifactId>command-line-server</artifactId>
+	<name>command-line-server</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-
 	<dependencies>
-
-		<dependency>
-			<groupId>org.lionsoul</groupId>
-			<artifactId>jcseg-core</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-
 		<dependency>
 			<groupId>com.wzm</groupId>
 			<artifactId>service-core</artifactId>
