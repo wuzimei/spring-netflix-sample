@@ -6,6 +6,7 @@ It has following sub modules:<br/>
 *  service-core
 *  service-word-segment
 *  command-line-server
+*  zuul-gateway
 
 ## spring-cloud-eureka-server
 This is a microservice registry and discovery server using netflix eureka. It runs on port 8761.
@@ -18,6 +19,9 @@ This is a microservice which function is to seperate a sentence to word segments
 
 ## command-line-server
 This is a server that you can input some command, and the server will call other microservice to do some business and return the result to user. It runs on port 9000.
+
+## zuul gateway
+This is an API gateway. It runs on port 8080.
 
 ## install & RUN
 ```Bash
@@ -37,6 +41,11 @@ java -jar service-word-segment/target/xxx.jar
 # start command-line-server
 java -jar command-line-server/target/xxx.jar
 ```
+```Bash
+# start zuul-gateway
+java -jar zuul-gateway/target/xxx.jar
+```
+
 
 ## Check server status
 ![](https://github.com/wuzimei/spring-netflix-sample/blob/master/eureka_cap.png)
