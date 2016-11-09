@@ -78,6 +78,8 @@
 		<module>service-word-segment</module>
 		<module>service-core</module>
 		<module>command-line-server</module>
+		<module>zuul-gateway</module>
 	</modules>
 </project>
+
 

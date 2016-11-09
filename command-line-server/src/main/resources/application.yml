@@ -9,3 +9,6 @@ eureka:
 spring:
   application:
     name: command-line-server
+    
+info: 
+  appname: command-line-server

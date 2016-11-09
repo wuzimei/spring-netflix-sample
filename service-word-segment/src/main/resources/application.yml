@@ -9,3 +9,6 @@ eureka:
 spring:
   application:
     name: word-segment-server
+    
+info: 
+  appname: word-segment-server
