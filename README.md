@@ -18,3 +18,28 @@ This is a microservice which function is to seperate a sentence to word segments
 
 ## command-line-server
 This is a server that you can input some command, and the server will call other microservice to do some business and return the result to user. It runs on port 9000.
+
+## install & RUN
+```Bash
+# build jars
+cd spring-netflix-sample
+mvn clean package
+```
+```Bash
+# start eureka server
+java -jar spring-cloud-eureka-server/target/xxx.jar
+```
+```Bash
+# start service-word-segment
+java -jar service-word-segment/target/xxx.jar
+```
+```Bash
+# start command-line-server
+java -jar command-line-server/target/xxx.jar
+```
+
+## Check server status
+![](https://github.com/wuzimei/spring-netflix-sample/blob/master/eureka_cap.png)
+
+## Test with postman
+![](https://github.com/wuzimei/spring-netflix-sample/blob/master/postman_cap.png)  
