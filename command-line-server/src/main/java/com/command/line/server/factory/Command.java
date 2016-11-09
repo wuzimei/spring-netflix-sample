@@ -1,5 +1,8 @@
 package com.command.line.server.factory;
 
+import com.command.line.server.App;
+import com.command.line.server.WordSegmentClient;
+
 public abstract class Command {
 
 	public String params;
@@ -7,7 +10,9 @@ public abstract class Command {
 	public String action;
 	public String function;
 	
-	
+	protected WordSegmentClient getWordSegmentClient() {
+		return (WordSegmentClient) App.getApplicationContext().getBean("com.command.line.server.WordSegmentClient");
+	}
 	
 	public String wrapRun() throws Exception {
 		System.out.println("domain: " + domain);

@@ -1,7 +1,6 @@
 package com.command.line.server;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
@@ -18,13 +17,17 @@ import com.command.line.server.factory.CommandFactory;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-@EnableAutoConfiguration
 @RestController
 public class App {
 
+	private static ApplicationContext ac;
+	
 	public static void main(String[] args) {
-		ApplicationContext ac = SpringApplication.run(App.class, args);
-		CommandFactory.setAc(ac);
+		ac = SpringApplication.run(App.class, args);
+	}
+	
+	public static ApplicationContext getApplicationContext() {
+		return ac;
 	}
 
 	@RequestMapping(value = "/command", method = RequestMethod.POST)

@@ -6,7 +6,7 @@ public class WordCommand extends Command {
 
 	@Override
 	public String run() throws Exception {
-		List<String> list = CommandFactory.getWordSegmentClient().wordSegment(params);
+		List<String> list = this.getWordSegmentClient().wordSegment(params);
 		
 		StringBuilder sb = new StringBuilder();
 		for (String str : list) {

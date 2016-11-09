@@ -5,38 +5,30 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.springframework.context.ApplicationContext;
-
-import com.command.line.server.WordSegmentClient;
-
 public class CommandFactory {
 
-	private static ApplicationContext ac;
-	
-	public static void setAc(ApplicationContext applicationContext) {
-		ac = applicationContext;
-	}
-	
-	public static WordSegmentClient getWordSegmentClient() {
-		return (WordSegmentClient)ac.getBean("com.command.line.server.WordSegmentClient");
+	private static String[] seperate(String str) {
+		String left = fullMatch("^[^ ]+", str);
+		int index = str.indexOf(left);
+		String right = str.substring(index + left.length()).trim();
+		return new String[]{left, right};
 	}
 	
 	public static Command create(String command) {
 		String tmp = command.trim();
 		// sample: wzm admin hello
 		
-		String domain = fullMatch("^[^ ]+", tmp);
-		int index = tmp.indexOf(domain);
-		tmp = tmp.substring(index + domain.length()).trim();
-		String function = fullMatch("^[^ ]+", tmp);
-		index = tmp.indexOf(function);
-		tmp = tmp.substring(index + function.length()).trim();
-		String action = fullMatch("^[^ ]+", tmp);
-		index = tmp.indexOf(action);
-		tmp = tmp.substring(index + action.length()).trim();
+		String[] sepr = seperate(tmp);
+		String domain = sepr[0];
+		sepr = seperate(sepr[1]);
+		String function = sepr[0];
+		sepr = seperate(sepr[1]);
+		String action = sepr[0];
+		String params = sepr[1];
 		
 		Command cmd = null;
 		try {
+			@SuppressWarnings("rawtypes")
 			Class c = Class.forName("com.command.line.server.factory." + function.substring(0, 1).toUpperCase() + function.substring(1) + "Command");
 			cmd = (Command) c.newInstance();	
 		} catch (Exception e) {
@@ -45,18 +37,11 @@ public class CommandFactory {
 		}
 		
 		cmd.action = action;
-		cmd.params = tmp;
+		cmd.params = params;
 		cmd.function = function;
 		cmd.domain = domain;
 		return cmd;
-		/*
-		if (action.equals("admin")) {
-			return new AdminCommand(domain, function, action, tmp);
-		} else if (action.equals("word")) {
-			return new WordCommand(domain, function, action, tmp);
-		} else {
-			return null;
-		}*/
+		
 	}
 	
 	public static String fullMatch(String regex, String str) {
