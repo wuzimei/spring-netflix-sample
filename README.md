@@ -1,10 +1,11 @@
 # spring-netflix-sample
-this is a sample for spring cloud netflix
+This is a sample for spring cloud netflix
 
 It has following sub modules:<br/>
 *  spring-cloud-eureka-server
 *  service-core
 *  service-word-segment
+*  service-ip-location
 *  command-line-server
 *  zuul-gateway
 
@@ -16,6 +17,9 @@ This is a common library and interface definations for other modules(service-wor
 
 ## service-word-segment
 This is a microservice which function is to seperate a sentence to word segments. It runs on port 7000.
+
+## service-ip-location
+This is a microservice which function is to give the location of an ip. It runs on port 7001.
 
 ## command-line-server
 This is a server that you can input some command, and the server will call other microservice to do some business and return the result to user. It runs on port 9000.
@@ -38,6 +42,10 @@ java -jar spring-cloud-eureka-server/target/xxx.jar
 java -jar service-word-segment/target/xxx.jar
 ```
 ```Bash
+# start service-ip-location
+java -jar service-ip-location/target/xxx.jar
+```
+```Bash
 # start command-line-server
 java -jar command-line-server/target/xxx.jar
 ```
@@ -45,6 +53,13 @@ java -jar command-line-server/target/xxx.jar
 # start zuul-gateway
 java -jar zuul-gateway/target/xxx.jar
 ```
+
+## command supported on command-line-server
+You can post the command to http://127.0.0.1:9000/command to call microservices.
+
+command list:
+* wzm location ip 8.8.8.8
+* wzm word segment balabalabala
 
 
 ## Check server status
