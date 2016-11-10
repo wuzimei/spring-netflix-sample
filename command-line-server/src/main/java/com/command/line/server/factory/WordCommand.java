@@ -2,6 +2,9 @@ package com.command.line.server.factory;
 
 import java.util.List;
 
+/**
+ * wzm word segment xxxx
+ */
 public class WordCommand extends Command {
 
 	@Override

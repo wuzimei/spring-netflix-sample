@@ -9,6 +9,8 @@ ribbon:
   eureka: 
     enabled: true
 
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+
 #eureka:
 #  client:
 #    registerWithEureka: true

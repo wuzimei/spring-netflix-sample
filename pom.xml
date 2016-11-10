@@ -51,6 +51,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        
+        
 	</dependencies>
 
 	<dependencyManagement>
@@ -76,6 +78,7 @@
 	<modules>
 		<module>spring-cloud-eureka-server</module>
 		<module>service-word-segment</module>
+		<module>service-ip-location</module>
 		<module>service-core</module>
 		<module>command-line-server</module>
 		<module>zuul-gateway</module>
